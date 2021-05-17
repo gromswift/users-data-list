@@ -1,0 +1,130 @@
+@import "src/styles/animations";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.reversed {
+  flex-wrap: wrap-reverse;
+}
+
+.listItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #355C7D;
+  animation-name: fadeInAndMoveToTop;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-duration: 0.3s;
+  padding: 15px 10px;
+  margin-bottom: 15px;
+}
+
+.leftSideWrap {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  min-width: 170px;
+}
+
+.rightSideWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  min-width: 170px;
+}
+
+.userImgWrap {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  text-align: center;
+  background-color: #eeecf1;
+  border-radius: 50%;
+  padding-top: 7px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.userImg {
+  width: 55px;
+  height: 55px;
+}
+
+.favBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: unset;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding-top: 5px;
+
+  &:hover {
+    background-color: #f0f3f9;
+  }
+
+  &:active {
+    background-color: rgba(246, 114, 128, 0.3);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.2s ease-in-out;
+    path {
+      transition: all 0.2s ease-in-out;
+      fill: #68718c;
+    }
+  }
+
+  svg.filled {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 0.24s ease-in-out;
+    z-index: 10;
+  }
+
+  &Active {
+    svg {
+      path {
+        transition: all 0.2s ease-in-out;
+        fill: #f67280;
+      }
+    }
+
+    svg.filled {
+      transform: scale(1);
+      transform-origin: center;
+      transition: all 0.24s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .listItem {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+
+  .rightSideWrap {
+    width: 100%;
+  }
+}
+

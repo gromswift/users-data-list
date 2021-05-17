@@ -1,0 +1,162 @@
+@import "src/styles/animations";
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  color: #32425c;
+  padding: 40px 20px 80px;
+  animation: fadeIn 0.3s ease-in-out both;
+  margin: 0 auto;
+}
+
+.controlsTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  border-bottom: 1px solid #6C5B7B;
+  padding: 20px 0 10px;
+  margin-bottom: 10px;
+}
+
+.langBtn {
+  width: 40px;
+  height: 40px;
+  color: #6C5B7B;
+  background-color: #fff;
+  border: 1px solid #6C5B7B;
+  border-radius: 50%;
+}
+
+.searchByInput {
+  position: relative;
+  max-width: 320px;
+  min-width: 250px;
+  width: 100%;
+  color: #355C7D;
+  font-family: inherit;
+  border: 1px solid #6C5B7B;
+  border-radius: 20px;
+  padding: 8px 40px 8px 15px;
+
+  &::placeholder {
+    color: #355C7D;
+    opacity: 0.7;
+  }
+}
+
+label {
+  position: relative;
+  max-width: 320px;
+  min-width: 250px;
+  width: 100%;
+  margin-bottom: 5px;
+
+  svg {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    fill: #355C7D;
+    opacity: 0.7;
+  }
+}
+
+.controlsBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.viewBtn {
+  width: 100px;
+  border: 1px solid #6C5B7B;
+  border-radius: 16px;
+  padding: 7px 10px;
+  letter-spacing: 1px;
+}
+
+
+.viewCap {
+  width: 100%;
+  color: #32425c;
+  margin-bottom: 10px;
+}
+
+.btn {
+  font-family: inherit;
+  color: #6C5B7B;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.14s ease-in-out;
+  margin-bottom: 10px;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &:hover:not(.btnActive) {
+    background-color: #f0f3f9;
+  }
+
+  &Active {
+    color: white;
+    background-color: rgba(108, 91, 123, 1);
+  }
+}
+
+.loader {
+  position: fixed;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border-bottom: 4px solid #6C5B7B;
+  border-right: 4px solid #6C5B7B;
+  border-left: 4px solid transparent;
+  border-top: none;
+  animation: rotate 1s linear infinite;
+}
+
+
+@media (max-width: 768px) {
+  .controlsTop {
+    align-items: flex-start;
+    flex-wrap: wrap-reverse;
+    padding-bottom: 5px;
+  }
+
+  label {
+    max-width: 260px;
+  }
+
+  .searchByInput {
+    max-width: 260px;
+    font-size: 12px;
+  }
+
+  .controlsBottom {
+    flex-wrap: wrap-reverse;
+  }
+
+  .btn {
+    margin-bottom: 5px;
+    font-size: 12px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  .langBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+}

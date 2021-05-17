@@ -1,0 +1,139 @@
+@import "src/styles/animations";
+
+.sortingCap {
+  color: #32425c;
+  margin-bottom: 10px;
+}
+
+.sorting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select {
+  position: relative;
+  width: 150px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6C5B7B;
+  text-transform: capitalize;
+  border: 1px solid #6C5B7B;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 80ms ease-in-out;
+  padding: 5px 25px 5px 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+
+  svg {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: calc(50% - 6px);
+    right: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &Opened {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 100ms ease-in-out;
+
+    .dropdown {
+      display: block;
+    }
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px);
+  left: -1px;
+  width: 150px;
+  border-left: 1px solid #6C5B7B;
+  border-right: 1px solid #6C5B7B;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background-color: #fff;
+  animation: growDown 300ms ease-in-out 80ms both;
+  transform-origin: top center;
+  z-index: 10;
+}
+
+.selectDefaultValue {
+  text-transform: capitalize;
+}
+
+.option {
+  line-height: 21px;
+  border-bottom: 1px solid #6C5B7B;
+  transition: background-color 0.2s ease-in-out;
+  padding: 4px 10px;
+
+  &:last-child {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  &:hover {
+    background-color: #f0f3f9;
+  }
+}
+
+.reverseBtn {
+  position: relative;
+  width: 150px;
+  color: #6C5B7B;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  background-color: #fff;
+  border: 1px solid #6C5B7B;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.14s ease-in-out;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &:hover:not(.reverseBtnActive) {
+    background-color: #f0f3f9;
+  }
+
+  &Active {
+    color: #fff;
+    background-color: #6C5B7B;
+  }
+}
+
+@media (max-width: 768px) {
+  .sorting {
+    flex-wrap: wrap;
+  }
+
+  .select {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .reverseBtn {
+    font-size: 12px;
+    line-height: 16px;
+    vertical-align: middle;
+  }
+}
+
