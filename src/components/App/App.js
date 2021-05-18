@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import request from 'superagent';
 
-import styles from './App.module.scss';
 import Main from 'components/Main/Main';
 import { getUsersList, getUsersListSuccess, getUsersListFailure, sortUsersList, reverseUsersList } from "actions/usersListActions";
 import getUrlParams from "utils/getUrlParams";
 import SORTING_TYPES from 'constants/sortingTypes';
-import updateLocationQuery from "../../utils/updateLocationQuery";
 
 function App() {
   const dispatch = useDispatch();

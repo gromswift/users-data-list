@@ -11,7 +11,6 @@ import pluralizeRu from "../../helpers/p11nRu";
 
 const checkWideMode = (index, arr) => {
   if ((arr[index + 1] && arr[index + 1].video) || !arr[index + 1]) {
-    console.log(checkIsElemOdd(index - 1, index, arr));
     return checkIsElemOdd(index - 1, index, arr);
   }
 

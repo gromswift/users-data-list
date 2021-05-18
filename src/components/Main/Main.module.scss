@@ -1,9 +1,10 @@
 @import "src/styles/animations";
+@import "src/styles/variables";
 
 .container {
   max-width: 900px;
   width: 100%;
-  color: #32425c;
+  color: $color-secondary;
   padding: 40px 20px 80px;
   animation: fadeIn 0.3s ease-in-out both;
   margin: 0 auto;
@@ -15,7 +16,7 @@
   align-items: center;
   font-size: 14px;
   line-height: 18px;
-  border-bottom: 1px solid #6C5B7B;
+  border-bottom: 1px solid $color-primary;
   padding: 20px 0 10px;
   margin-bottom: 10px;
 }
@@ -23,9 +24,9 @@
 .langBtn {
   width: 40px;
   height: 40px;
-  color: #6C5B7B;
-  background-color: #fff;
-  border: 1px solid #6C5B7B;
+  color: $color-primary;
+  background-color: $color-background-base;
+  border: 1px solid $color-primary;
   border-radius: 50%;
 }
 
@@ -34,14 +35,14 @@
   max-width: 320px;
   min-width: 250px;
   width: 100%;
-  color: #355C7D;
+  color: $color-secondary;
   font-family: inherit;
-  border: 1px solid #6C5B7B;
+  border: 1px solid $color-primary;
   border-radius: 20px;
   padding: 8px 40px 8px 15px;
 
   &::placeholder {
-    color: #355C7D;
+    color: $color-secondary;
     opacity: 0.7;
   }
 }
@@ -60,7 +61,7 @@ label {
     right: 15px;
     width: 18px;
     height: 18px;
-    fill: #355C7D;
+    fill: $color-secondary;
     opacity: 0.7;
   }
 }
@@ -74,7 +75,7 @@ label {
 
 .viewBtn {
   width: 100px;
-  border: 1px solid #6C5B7B;
+  border: 1px solid $color-primary;
   border-radius: 16px;
   padding: 7px 10px;
   letter-spacing: 1px;
@@ -83,15 +84,15 @@ label {
 
 .viewCap {
   width: 100%;
-  color: #32425c;
+  color: $color-secondary;
   margin-bottom: 10px;
 }
 
 .btn {
   font-family: inherit;
-  color: #6C5B7B;
+  color: $color-primary;
   font-size: 14px;
-  background-color: white;
+  background-color: $color-background-base;
   cursor: pointer;
   transition: all 0.14s ease-in-out;
   margin-bottom: 10px;
@@ -101,12 +102,12 @@ label {
   }
 
   &:hover:not(.btnActive) {
-    background-color: #f0f3f9;
+    background-color: $color-grey-light;
   }
 
   &Active {
     color: white;
-    background-color: rgba(108, 91, 123, 1);
+    background-color: $color-primary;
   }
 }
 
@@ -117,8 +118,8 @@ label {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border-bottom: 4px solid #6C5B7B;
-  border-right: 4px solid #6C5B7B;
+  border-bottom: 4px solid $color-primary;
+  border-right: 4px solid $color-primary;
   border-left: 4px solid transparent;
   border-top: none;
   animation: rotate 1s linear infinite;
