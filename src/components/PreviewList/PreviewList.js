@@ -9,6 +9,23 @@ import { ReactComponent as FavIconFil } from './img/favoriteFil.svg';
 import { filterByName } from 'helpers/filterByName'
 import pluralizeRu from "../../helpers/p11nRu";
 
+const checkWideMode = (index, arr) => {
+  if ((arr[index + 1] && arr[index + 1].video) || !arr[index + 1]) {
+    console.log(checkIsElemOdd(index - 1, index, arr));
+    return checkIsElemOdd(index - 1, index, arr);
+  }
+
+  return false;
+}
+
+const checkIsElemOdd = (prevIndex, currIndex, arr) => {
+  if ((prevIndex < 0) || arr[prevIndex].video) {
+    return ((currIndex - (prevIndex + 1)) % 2) === 0;
+  }
+
+  return checkIsElemOdd(prevIndex - 1, currIndex, arr);
+}
+
 function PreviewList(props) {
   const list = useSelector(state => state.usersList.list);
   const { t, i18n } = useTranslation();
@@ -19,16 +36,22 @@ function PreviewList(props) {
   } = props;
 
   const renderCards = (list) => {
-    return list.map((currUser, index, arr) => {
-      if (queryValue.length && !filterByName(queryValue, currUser.name)) return null;
+    let listClone = JSON.parse(JSON.stringify(list));
 
+    if (queryValue.length) {
+      listClone = listClone.filter(currUser => filterByName(queryValue, currUser.name));
+    }
+
+    return listClone.map((currUser, index, arr) => {
       const userAge = currUser.age;
 
       return (
         <div
           className={cx(
             styles.cardWrap,
-            {[styles.videoCardWrap]: !!currUser.video}
+            { [styles.videoCardWrap]: currUser.video,
+              [styles.cardWrapWide]: !currUser.video && checkWideMode(index, arr)
+            }
           )}
           style={{animationDelay: `${100 + (index * 100)}ms`}}
           key={currUser.id}
@@ -47,7 +70,7 @@ function PreviewList(props) {
                   styles.favBtn,
                   {[styles.favBtnActive]: currUser.favourite}
                 )}
-                onClick={() => toggleFavourite(currUser.id, arr)}
+                onClick={() => toggleFavourite(currUser.id, list)}
               >
                 <FavIcon/>
                 <FavIconFil className={styles.filled} />

@@ -13,6 +13,10 @@
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
   animation-duration: 0.3s;
+
+  &Wide {
+    width: 100%;
+  }
 }
 
 .videoCardWrap {

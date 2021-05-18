@@ -20,9 +20,13 @@ function TableList(props) {
   } = props;
 
   const renderList = (list) => {
-    return list.map((currUser, index, arr) => {
-      if (queryValue.length && !filterByName(queryValue, currUser.name)) return null;
+    let listClone = JSON.parse(JSON.stringify(list));
 
+    if (queryValue.length) {
+      listClone = listClone.filter(currUser => filterByName(queryValue, currUser.name));
+    }
+
+    return listClone.map((currUser, index, arr) => {
       const userAge = currUser.age;
 
       return (
@@ -47,7 +51,7 @@ function TableList(props) {
                 styles.favBtn,
                 {[styles.favBtnActive]: currUser.favourite}
               )}
-              onClick={() => toggleFavourite(currUser.id, arr)}
+              onClick={() => toggleFavourite(currUser.id, list)}
             >
               <FavIcon/>
               <FavIconFil className={styles.filled} />
