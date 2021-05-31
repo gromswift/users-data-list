@@ -1,3 +1,24 @@
+# Aims of the task:
+(An archive with json-file, "images" and "videos" folders was provided with the task)
+
+- Fetch asynchronously json-file (a list of users with data).
+- Display the users data in form of a table.
+- Display the users data in form of a preview. Cards of users which have "video" field should occupy the entire width of the area and contain a player with this video from the “videos” folder.
+- Implement sorting by "ID", "Name", "Age" and "Reversed" (works for both table and preview).
+- Implement localisation using "react-intl" or "react-i18next" libraries (I chose the second option), so that you can switch between languages without reloading the page.
+- Implement filtering (with text input) by first name and / or last name. Provide the possibility that the user can enter in the field first the last name, and then the first name.
+- The selected list display type, active sorting and filtering should be stored in the page URL. When the page is opened, the page address should be parsed and the appropriate filters, sorts, etc. are enabled.
+- The page should be adaptive for tablets and phones.
+- Implement adding / removing from favourites via redux (user object contains "favourite" field).
+- Implement animation of interface elements (switches, filter, etc.).
+- List animation. When loading, re-sorting, filtering and changing the view, the list items appear one after another (with a slight delay relative to each other).
+- Branding. Interface elements (buttons, favorites, etc.) have a color from a variable.
+
+## Additional
+- Use only functional components.
+- Use redux.
+- Design was optional (only structural mockup was provided).
+
 # Getting Started with Create React Sorting
 
 This project was bootstrapped with [Create React Sorting](https://github.com/facebook/create-react-app).
